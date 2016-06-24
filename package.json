@@ -1,0 +1,14 @@
+{
+  "name": "mypass",
+  "author" : "ron.chi",
+  "description": "password generator ,and save you password",
+  "version": "0.0.3",
+  "bin": {
+    "mypass": "index.js"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "moment": "^2.13.0"
+  }
+}
