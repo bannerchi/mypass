@@ -2,7 +2,7 @@
   "name": "mypass",
   "author" : "ron.chi",
   "description": "password generator ,and save you password",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "bin": {
     "mypass": "index.js"
   },
