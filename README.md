@@ -22,23 +22,22 @@ mypass -c -n 16
 mypass -s
 ```
 <br>
+"I want a bookmark!"<br>
 ```bash
-#I want a bookmark!
 mypass -s -f test
 ```
 <br>
 4. List my passwords<br>
 ```bash
-#will show all default save passwords
 mypass -l
 ```
 <br>
+will show all default save passwords<br>
 ```bash
-#will get your bookmark
 mypass -l -f test
 ```
 <br>
-
+ will get your bookmark<br>
 5. Remove all passwords<br>
 ```bash
 mypass -C
