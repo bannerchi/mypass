@@ -37,11 +37,6 @@ List my passwords(will show all default save passwords)<br>
 mypass -l
 ```
 
-will get your bookmark<br>
-
-```bash
-mypass -l -f test
-```
 
 Remove all passwords<br>
 

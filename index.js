@@ -7,7 +7,7 @@ var moment = require('moment');
 var chalk = require('chalk');
 
 program
-	.version('0.0.1')
+	.version('0.0.2')
 	.option('-c, --create', 'Create a password')
 	.option('-C, --clean', 'Clean all passwords')
 	.option('-n, --number', 'The length of your password you want, max is 32, default 12')
@@ -99,12 +99,13 @@ function getPasswords (usefor, cb){
 					var onePass = JSON.parse(decrypt(arr[i]));
 					if(onePass.usefor == usefor){
 						finalArr.push(onePass);
-						console.log(
-							chalk.green("usefor:") + chalk.cyan(onePass.usefor) + '\n'
-							+ chalk.green("password:") +  chalk.blue.bgWhite.bold(onePass.pass) + '\n'
-							+ chalk.green("time:") + chalk.yellow(onePass.date) + '\n'
-						);
 					}
+
+					console.log(
+						chalk.green("usefor:") + chalk.cyan(onePass.usefor) + '\n'
+						+ chalk.green("password:") +  chalk.blue.bgWhite.bold(onePass.pass) + '\n'
+						+ chalk.green("time:") + chalk.yellow(onePass.date) + '\n'
+					);
 				}
 			}
 			cb(null, finalArr);
