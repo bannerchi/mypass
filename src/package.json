@@ -1,0 +1,24 @@
+{
+  "name": "mypass",
+  "version": "0.1.1",
+  "author":{
+    "name": "ronchi",
+    "url": "https://github.com/bannerchi"
+  },
+  "description": "mypass generate password and save it",
+  "main": "views/main.html",
+  "window": {
+    "resizable": false,
+    "fullscreen": false,
+    "min_width": 400,
+    "max_height": 350,
+    "icon": "assets/icon.png"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "moment": "^2.13.0",
+    "bootstrap": "^4.0.0-alpha.5",
+    "font-awesome": "^4.7.0"
+  }
+}

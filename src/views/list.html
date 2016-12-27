@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List your password</title>
+    <link rel="stylesheet" href="../styles/common.css">
+</head>
+
+<body>
+<div class="container">
+    <a href="main.html" class="btn btn-primary btn-back">
+        <i class="fa fa-chevron-left"></i>Back to home
+    </a>
+    <div class="space-4"></div>
+    <input type="text" class="form-control" id="input-search" placeholder="Search for...">
+    <div class="space-4"></div>
+    <table class="table table-inverse">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Pass</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+</div>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/tether/dist/js/tether.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../app/list.js"></script>
+</body>
+</html>

@@ -1,14 +1,17 @@
 {
   "name": "mypass",
-  "author" : "ron.chi",
+  "version": "0.1.1",
+  "author":{
+    "name": "ronchi",
+    "url": "https://github.com/bannerchi"
+  },
   "description": "password generator ,and save you password",
-  "version": "0.0.9",
-  "bin": {
-    "mypass": "index.js"
+  "scripts": {
+    "dev": "nw src/",
+    "prod": "nwbuild --platforms win32,win64,osx64,linux32,linux64 --buildDir dist/ src/"
   },
   "dependencies": {
-    "chalk": "^1.1.3",
-    "commander": "^2.9.0",
-    "moment": "^2.13.0"
+    "nw": "^0.18.3",
+    "nw-builder": "^3.1.2"
   }
 }
