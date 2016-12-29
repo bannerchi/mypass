@@ -1,10 +1,6 @@
 'use strict';
-const core = require('../lib/mp'),
-	  moment = require('moment');
-
-var clipboard = nw.Clipboard.get();
-
-showList();
+const core = require('../lib/mp');
+const {clipboard} = require('electron');
 
 function showList(kw) {
 	kw = kw || null;
@@ -12,6 +8,7 @@ function showList(kw) {
 		if(err){
 			alert(err.message);
 		} else {
+			cleanHtml();
 			var htmlTbody = '';
 			data.length>0 && data.forEach(function (onePass, i) {
 				htmlTbody += addHtml(onePass, i);
@@ -22,7 +19,7 @@ function showList(kw) {
 				var value = $(this).text();
 				var res = confirm("copy to clipboard");
 				if(res == true){
-					clipboard.set(value, 'text');
+					clipboard.writeText(value);
 				}
 			});
 		}
@@ -50,6 +47,7 @@ $("#input-search").keydown(function(event){
 		case 13:
 			cleanHtml();
 			showList(kw);
+			$(this).val("");
 			break;
 	}
 });

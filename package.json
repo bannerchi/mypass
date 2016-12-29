@@ -1,17 +1,32 @@
 {
   "name": "mypass",
-  "version": "0.1.1",
-  "author":{
+  "version": "0.2.1",
+  "author": {
     "name": "ronchi",
+    "email": "bannerchi@gmail.com",
     "url": "https://github.com/bannerchi"
   },
+  "main": "main.js",
   "description": "password generator ,and save you password",
   "scripts": {
-    "dev": "nw src/",
-    "prod": "nwbuild --platforms win32,win64,osx64,linux32,linux64 --buildDir dist/ src/"
+    "dev": "npm start",
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
   },
+  "build" : {
+    "productName": "mypass",
+    "win" : {
+      "target": "nsis"
+    }
+  },
+  "productName": "Mypass",
   "dependencies": {
-    "nw": "^0.18.3",
-    "nw-builder": "^3.1.2"
-  }
+    "moment": "^2.13.0"
+  },
+  "devDependencies": {
+    "electron": "^1.4.13",
+    "electron-builder": "^10.13.1"
+  },
+  "license": "MIT"
 }

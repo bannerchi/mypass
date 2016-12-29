@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mypass</title>
+    <link rel="stylesheet" href="../css/photon.min.css" />
+    <link rel="stylesheet" href="../css/jquery.modal.min.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+<div class="window">
+    <header class="toolbar toolbar-header">
+        <h1 class="title"><span class="btn btn-large icon icon-box">Mypass V0.2.1</span></h1>
+        <div class="toolbar-actions">
+            <input class="hide list-pane" id="input-search" placeholder="search you pass by name" />
+        </div>
+    </header>
+    <div class="window-content">
+        <div class="pane-group">
+            <div class="pane-sm sidebar">
+                <nav class="nav-group">
+                    <a class="nav-group-item active" pane="index-pane">
+                        <span class="icon icon-home"></span>
+                        Home
+                    </a>
+                    <a href="#" class="nav-group-item" pane="gen-pane">
+                        <span class="icon icon-publish"></span>
+                        Generate password
+                    </a>
+                    <a href="#" class="nav-group-item" pane="list-pane">
+                        <span class="icon icon-list"></span>
+                        List my pass
+                    </a>
+                </nav>
+            </div>
+            <div class="pane index-pane">
+                <h1>Welcome</h1> <br>
+                Time Now : <strong id="strong-time-now"></strong>
+            </div>
+            <div class="pane gen-pane hide">
+                <form class="padded-less">
+                    <div class="form-group">
+                        <input id="input-usefor" type="text" class="form-control" placeholder="use for what?">
+                    </div>
+                    <button type="button" id="btn-gencode" class="btn btn-large btn-primary">generate</button>
+                    <a style="display: none" href="#" id="strong-password" class="btn btn-large btn-warning">asdsfd</a>
+                </form>
+            </div>
+            <div class="pane list-pane hide">
+                <table class="table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Pass</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody id="table-body">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form class="login_form modal" id="password-add-form" style="display:none;">
+    <h3>Please add a password to continue</h3>
+    <p><input id="input-local-pass" type="password" placeholder="password to protect safety" /></p>
+    <p><input type="submit" id="btn-add-pass" value="Submit" /></p>
+</form>
+
+<!-- Insert this line above script imports  -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.modal.min.js"></script>
+<script src="../myapp/list.js"></script>
+<script src="../myapp/main.js"></script>
+<script src="../myapp/gen.js"></script>
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+</body>
+</html>

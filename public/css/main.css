@@ -1,0 +1,29 @@
+.my-form-control {
+    width: 38%;
+    min-height: 25px;
+    padding: 5px 10px;
+    line-height: 1.6;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: 0;
+}
+
+.login_form h3 {
+    background: -webkit-linear-gradient(180deg, #ddd, #fcfcfc);
+    color: #000;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px;
+}
+
+.login_form.modal p {
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+    overflow: hidden;
+    padding: 20px 30px;
+}
+
+.hide {
+    display: none;
+}

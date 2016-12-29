@@ -2,7 +2,6 @@
 var fs = require('fs');
 var crypto = require('crypto');
 var moment = require('moment');
-var chalk = require('chalk');
 
 var passLog = {
 	date : "",
