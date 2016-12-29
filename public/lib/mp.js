@@ -2,6 +2,7 @@
 var fs = require('fs');
 var crypto = require('crypto');
 var moment = require('moment');
+var path = require('path');
 
 var passLog = {
 	date : "",
@@ -11,7 +12,7 @@ var passLog = {
 
 var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
 
-var dirPath = homeDir + "/.mypass";
+var dirPath = path.join(homeDir, ".mypass");
 
 var defsalt = "no one";
 
@@ -49,7 +50,7 @@ function savePass(pass, usefor, cb) {
 	passLog.pass = pass;
 	passLog.usefor = usefor;
 
-	fs.writeFile(dirPath + "/pl", encrypt(JSON.stringify(passLog)) + "\n", {flag: "a"}, function(err){
+	fs.writeFile(path.join(dirPath, "pl"), encrypt(JSON.stringify(passLog)) + "\n", {flag: "a"}, function(err){
 		if(err){
 			cb(err);
 		} else {
@@ -75,7 +76,7 @@ function checkPassExist(usefor, data) {
 function getPasswords (usefor, cb){
 	usefor = usefor || 'default';
 
-	fs.readFile(dirPath + "/pl", 'utf8', function(err, data){
+	fs.readFile(path.join(dirPath, "pl"), 'utf8', function(err, data){
 		if(err){
 			cb(err, null);
 		} else {
@@ -135,5 +136,5 @@ exports.genAndSave = function (usefor, cb) {
 };
 
 exports.clean = function (cb) {
-	fs.unlink(dirPath + "/pl", cb);
+	fs.unlink(path.join(dirPath, "pl"), cb);
 };

@@ -1,6 +1,6 @@
 {
   "name": "mypass",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": {
     "name": "ronchi",
     "email": "bannerchi@gmail.com",
@@ -11,8 +11,8 @@
   "scripts": {
     "dev": "npm start",
     "start": "electron .",
-    "pack": "build --dir",
-    "dist": "build"
+    "pack": "rm -rf dist && build --dir",
+    "dist": "rm -rf dist && build"
   },
   "build" : {
     "productName": "mypass",
