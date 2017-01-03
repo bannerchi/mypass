@@ -1,6 +1,6 @@
 {
   "name": "mypass",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "author": {
     "name": "ronchi",
     "email": "bannerchi@gmail.com",
@@ -16,6 +16,15 @@
   },
   "build" : {
     "productName": "mypass",
+    "linux" : {
+      "target": "deb",
+      "desktop": {
+        "Type": "Application",
+        "Encoding": "UTF-8",
+        "Name": "mypass",
+        "Exec": "mypass"
+      }
+    },
     "win" : {
       "target": "nsis"
     }

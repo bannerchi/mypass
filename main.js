@@ -1,5 +1,7 @@
 'use strict';
 const electron = require('electron');
+const path = require('path');
+
 // 控制应用生命周期的模块。
 const {app} = electron;
 // 创建原生浏览器窗口的模块。
@@ -14,14 +16,14 @@ function createWindow () {
 	mainWindow = new BrowserWindow({
 		width: 600,
 		height: 300,
-		icon: __dirname + "/public/assets/icon.png"
+		icon: path.join(__dirname, '/public/assets/icon.png')
 	});
 
 	// 加载应用的 index.html。
 	mainWindow.loadURL(`file://${__dirname}/public/views/index.html`);
 
 	// 启用开发工具。
-	mainWindow.webContents.openDevTools();
+	//mainWindow.webContents.openDevTools();
 
 	// 当 window 被关闭，这个事件会被触发。
 	mainWindow.on('closed', () => {
