@@ -1,14 +1,17 @@
 'use strict';
 const moment = require('moment');
+const core = require('../lib/mp');
+
 var storage = window.localStorage;
 var localPass = storage.getItem("mp-local-pass")!= null
 	? JSON.parse(storage.getItem("mp-local-pass")) : null;
 
 var $passwordForm = $("#password-add-form");
 $(".nav-group-item").click(function () {
-	if(checkExpire() !== false){
+	var thisPane =  $(this).attr("pane");
+	if(checkExpire() !== false) {
 		$passwordForm.modal();
-		return ;
+		return false;
 	}
 	$(this).siblings(".nav-group-item").each(function (index, elemnts) {
 		$(elemnts).removeClass("active");
@@ -17,28 +20,27 @@ $(".nav-group-item").click(function () {
 	});
 
 	$(this).addClass("active");
-	var thisPane =  $(this).attr("pane");
 	$("." + thisPane).show();
-	if(thisPane == "list-pane"){
-		showList();
+	if(thisPane === "list-pane") {
+		showList(null, localPass.password);
 	}
 });
 
 $("#btn-add-pass").click(function () {
 	let checkRes = checkExpire();
 	let pass = $("#input-local-pass").val();
-	if(checkRes == "no login"){
-		if (pass != null && pass != "") {
+	if(checkRes === 'no login') {
+		if (pass != null && pass !== '') {
 			let obj = {
-				password: pass,
+				password: core.md5(pass),
 				expire: moment().add(10, 'minutes')
 			};
 			storage.setItem("mp-local-pass", JSON.stringify(obj));
 		} else {
 			alert("Error : empty password");
 		}
-	} else if(checkRes == "expire"){
-		if(checkPass(pass) == true){
+	} else if(checkRes === "expire") {
+		if(checkPass(pass) == true) {
 			localPass.expire = moment().add(10, 'minutes');
 			storage.setItem("mp-local-pass", JSON.stringify(localPass));
 			$.modal.close();
@@ -46,7 +48,7 @@ $("#btn-add-pass").click(function () {
 			alert("wrong password");
 		}
 	} else {
-		if(checkPass(pass) == false){
+		if(checkPass(pass) === false) {
 			alert("wrong password");
 		} else {
 			$.modal.close();
@@ -55,21 +57,21 @@ $("#btn-add-pass").click(function () {
 });
 
 function checkPass(pass) {
-	if(!localPass.password){
+	if(!localPass.password) {
 		return false;
 	}
 
-	return localPass.password == pass;
+	return localPass.password === core.md5(pass);
 }
 
 function checkExpire(init) {
 	init = init || false;
-	if(localPass === null){
+	if(localPass === null) {
 		init && alert('Enter local password for init');
-		return "no login";
+		return 'no login';
 	} else {
-		if(!localPass.expire || moment(localPass.expire).isAfter( moment().format()) == false){
-			return "expire";
+		if(!localPass.expire || moment(localPass.expire).isAfter(moment().format()) === false) {
+			return 'expire';
 		}
 	}
 	return false;

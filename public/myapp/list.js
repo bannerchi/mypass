@@ -1,12 +1,15 @@
 'use strict';
-const core = require('../lib/mp');
 const {clipboard} = require('electron');
 
-function showList(kw) {
+function showList(kw, userPass) {
 	kw = kw || null;
-	core.list(kw, function (err, data) {
-		if(err){
-			alert(err.message);
+	core.list(kw, userPass, function (err, data) {
+		if(err) {
+			if(err.message.indexOf('file') !== -1) {
+				alert('no password save, goto generate one');
+			} else {
+				alert(err.message);
+			}
 		} else {
 			cleanHtml();
 			var htmlTbody = '';
@@ -18,7 +21,7 @@ function showList(kw) {
 			$(".list-passwords").click(function () {
 				var value = $(this).text();
 				var res = confirm("copy to clipboard");
-				if(res == true){
+				if(res === true) {
 					clipboard.writeText(value);
 				}
 			});
@@ -41,13 +44,13 @@ function cleanHtml() {
 	$("#table-body").children().remove();
 }
 
-$("#input-search").keydown(function(event){
+$("#input-search").keydown(function(event) {
 	var kw = $(this).val();
 	switch(event.keyCode) {
 		case 13:
 			cleanHtml();
 			showList(kw);
-			$(this).val("");
+			$(this).val('');
 			break;
 	}
 });

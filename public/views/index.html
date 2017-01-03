@@ -10,7 +10,7 @@
 <body>
 <div class="window">
     <header class="toolbar toolbar-header">
-        <h1 class="title"><span class="btn btn-large icon icon-box">Mypass V0.2.1</span></h1>
+        <h1 class="title"><span class="btn btn-large icon icon-box">Mypass V0.2.10</span></h1>
         <div class="toolbar-actions">
             <input class="hide list-pane" id="input-search" placeholder="search you pass by name" />
         </div>
@@ -35,6 +35,15 @@
             </div>
             <div class="pane index-pane">
                 <h1>Welcome</h1> <br>
+                <h2>
+                    Mypass 0.2.10 Help docs
+                </h2>
+                <p>
+                    1. You should enter a user Password, just use for this software.<br>
+                    2. Click 'Generate password', if you want mark your password please fill `use for what` input, then click generate<br>
+                    you will get a password , click the yellow button to copy to your clipboard.<br>
+                    3. Click List my pass you will see your passwords.
+                </p> <br>
                 Time Now : <strong id="strong-time-now"></strong>
             </div>
             <div class="pane gen-pane hide">
@@ -56,9 +65,7 @@
                         <th>Date</th>
                     </tr>
                     </thead>
-                    <tbody id="table-body">
-
-                    </tbody>
+                    <tbody id="table-body"></tbody>
                 </table>
             </div>
         </div>
@@ -66,7 +73,7 @@
 </div>
 
 <form class="login_form modal" id="password-add-form" style="display:none;">
-    <h3>Please add a password to continue</h3>
+    <h3>Please enter a password to continue</h3>
     <p><input id="input-local-pass" type="password" placeholder="password to protect safety" /></p>
     <p><input type="submit" id="btn-add-pass" value="Submit" /></p>
 </form>

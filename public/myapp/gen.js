@@ -3,7 +3,7 @@
 $(function($) {
 	$("#btn-gencode").click(function () {
 		var userFor = $("#input-usefor").val();
-		core.genAndSave(userFor, function (err, data) {
+		core.genAndSave(userFor, localPass.password, function (err, data) {
 			if(err){
 				alert(err.message);
 			} else {
@@ -15,7 +15,7 @@ $(function($) {
 	$("#strong-password").click(function () {
 		var value = $(this).text();
 		var res = confirm("copy to clipboard");
-		if(res == true){
+		if(res === true){
 			clipboard.writeText(value);
 		}
 	});
