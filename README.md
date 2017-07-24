@@ -1,13 +1,13 @@
-##Mypass
+## Mypass
 
-###useage
+### useage
 
-####install <br>
+#### install <br>
 ```bash
 npm i -g mypass
 ```
 
-####Generate a password<br>  
+#### Generate a password<br>  
 ```bash
 mypass -c
 ```
